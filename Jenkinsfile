@@ -16,7 +16,7 @@ pipeline {
 
         stage('Install Dependencies & Train Model') {
             steps {
-                sh '''
+                bat '''
                 pip install -r requirements.txt
                 cd model
                 python train.py
@@ -26,7 +26,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t $IMAGE_NAME:$TAG .'
+                bat 'docker build -t %IMAGE_NAME%:%TAG% .'
             }
         }
 
@@ -37,20 +37,20 @@ pipeline {
                     usernameVariable: 'USERNAME',
                     passwordVariable: 'PASSWORD'
                 )]) {
-                    sh 'echo $PASSWORD | docker login -u $USERNAME --password-stdin'
+                    bat 'echo %PASSWORD% | docker login -u %USERNAME% --password-stdin'
                 }
             }
         }
 
         stage('Push Image to DockerHub') {
             steps {
-                sh 'docker push $IMAGE_NAME:$TAG'
+                bat 'docker push %IMAGE_NAME%:%TAG%'
             }
         }
 
         stage('Deploy to Kubernetes') {
             steps {
-                sh '''
+                bat '''
                 kubectl apply -f deployment.yaml
                 kubectl apply -f service.yaml
                 '''
