@@ -10,7 +10,7 @@ pipeline {
 
         stage('Clone Code') {
             steps {
-                git 'https://github.com/your-repo/devops-issue-ml.git'
+                git 'https://github.com/DevOps-Fusion/MLOPS_Projects.git'
             }
         }
 
