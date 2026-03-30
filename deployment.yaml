@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-ml-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: devops-ml
+  template:
+    metadata:
+      labels:
+        app: devops-ml
+    spec:
+      containers:
+      - name: devops-ml
+        image: devops-ml-app:latest
+        ports:
+        - containerPort: 80

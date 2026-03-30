@@ -1,0 +1,7 @@
+1. Docker
+2. Minikube
+3. Promethus & Grafana
+   docker run -d --name prometheus -p 9090:9090 prom/prometheus
+   docker run -d --name grafana -p 3000:3000 grafana/grafana
+4. Jenkins
+   docker run -d -p 8080:8080 -p 50000:50000 --name jenkins jenkins/jenkins:lts

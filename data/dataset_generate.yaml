@@ -1,0 +1,36 @@
+import pandas as pd
+
+base_data = {
+    "Pod Crash": [
+        "CrashLoopBackOff",
+        "pod restarting",
+        "container crash",
+        "restart loop"
+    ],
+    "Image Issue": [
+        "ImagePullBackOff",
+        "cannot pull image",
+        "image not found",
+        "registry error"
+    ],
+    "Memory Issue": [
+        "OOMKilled",
+        "out of memory",
+        "memory exceeded"
+    ]
+}
+
+rows = []
+
+for category, texts in base_data.items():
+    for text in texts:
+        for i in range(20):  # generate variations
+            rows.append({
+                "text": f"{text} issue {i}",
+                "category": category
+            })
+
+df = pd.DataFrame(rows)
+df.to_csv("large_dataset.csv", index=False)
+
+print("Dataset generated!")
