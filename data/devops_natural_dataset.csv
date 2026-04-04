@@ -1,0 +1,99 @@
+text,category
+my pod is restarting again and again,Pod Crash
+pod keeps restarting continuously,Pod Crash
+container is crashing repeatedly,Pod Crash
+application inside pod is failing,Pod Crash
+getting crashloopbackoff error,Pod Crash
+pod goes into restart loop,Pod Crash
+my container is not stable and restarting,Pod Crash
+pod fails and restarts automatically,Pod Crash
+application crashing inside kubernetes pod,Pod Crash
+container not staying up,Pod Crash
+
+unable to pull docker image,Image Issue
+image is not downloading from registry,Image Issue
+getting imagepullbackoff error,Image Issue
+kubernetes cannot pull image,Image Issue
+image not found error in pod,Image Issue
+private image not accessible,Image Issue
+docker image pull is failing,Image Issue
+registry authentication failed,Image Issue
+image not available in repo,Image Issue
+error while pulling container image,Image Issue
+
+container killed due to memory issue,Memory Issue
+pod terminated due to high memory usage,Memory Issue
+application consuming too much memory,Memory Issue
+getting oomkilled error,Memory Issue
+container exceeding memory limits,Memory Issue
+memory usage too high in pod,Memory Issue
+application crashing due to memory leak,Memory Issue
+pod killed because of memory,Memory Issue
+container out of memory issue,Memory Issue
+memory limit exceeded error,Memory Issue
+
+pod is stuck in pending state,Scheduling Issue
+pod not getting scheduled,Scheduling Issue
+no node available for pod,Scheduling Issue
+insufficient resources for pod,Scheduling Issue
+cpu or memory not available,Scheduling Issue
+pod waiting for resources,Scheduling Issue
+node selector mismatch issue,Scheduling Issue
+taints not allowing pod scheduling,Scheduling Issue
+pod not assigned to any node,Scheduling Issue
+scheduler unable to place pod,Scheduling Issue
+
+node is not ready,Node Issue
+kubernetes node is down,Node Issue
+node not responding,Node Issue
+kubelet stopped on node,Node Issue
+node unreachable error,Node Issue
+node having network issue,Node Issue
+node resource exhausted,Node Issue
+cluster node failure detected,Node Issue
+node in notready state,Node Issue
+node not available for scheduling,Node Issue
+
+service is unavailable,Service Issue
+getting 503 error from service,Service Issue
+backend not responding,Service Issue
+application service down,Service Issue
+no healthy upstream found,Service Issue
+service not reachable,Service Issue
+api returning service unavailable,Service Issue
+pods behind service are down,Service Issue
+service endpoint not working,Service Issue
+ingress routing failing,Service Issue
+
+getting 502 bad gateway error,Service Issue
+bad gateway from server,Service Issue
+invalid response from backend,Service Issue
+upstream server failure,Service Issue
+gateway not able to reach backend,Service Issue
+502 error in application,Service Issue
+reverse proxy error,Service Issue
+backend service not responding properly,Service Issue
+gateway timeout issue,Service Issue
+error in upstream connection,Service Issue
+
+pod stuck in container creating,Startup Issue
+container not starting properly,Startup Issue
+pod taking too long to start,Startup Issue
+volume mount is failing,Startup Issue
+image pulling slow,Startup Issue
+network delay in pod startup,Startup Issue
+container stuck during initialization,Startup Issue
+pod initialization issue,Startup Issue
+container creation delay,Startup Issue
+startup issue in pod,Startup Issue
+
+configmap not found error,Configuration Issue
+configuration missing in pod,Configuration Issue
+invalid configmap reference,Configuration Issue
+environment variable missing,Configuration Issue
+application config not loaded,Configuration Issue
+configmap key missing,Configuration Issue
+wrong configuration provided,Configuration Issue
+config error in deployment,Configuration Issue
+pod failing due to config issue,Configuration Issue
+incorrect configmap usage,Configuration Issue
