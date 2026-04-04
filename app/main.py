@@ -1,9 +1,13 @@
+#-----------------------------------------------------------------------------------------------------------
 from fastapi import FastAPI
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, Response
 import joblib
 import pandas as pd
 import os
+import time
 
+# Prometheus imports
+from prometheus_client import Counter, Histogram, generate_latest
 
 app = FastAPI()
 
@@ -11,11 +15,17 @@ app = FastAPI()
 model = joblib.load("../model/model.pkl")
 vectorizer = joblib.load("../model/vectorizer.pkl")
 
-# Load dataset for detailed response
+# Load dataset
 df = pd.read_csv("../data/devops_issues_dataset.csv")
 
 def normalize(text):
     return text.lower().strip()
+
+# ✅ Prometheus Metrics
+REQUEST_COUNT = Counter('ml_requests_total', 'Total ML Requests')
+REQUEST_LATENCY = Histogram('ml_request_latency_seconds', 'Request latency')
+
+# ---------------- ROUTES ---------------- #
 
 @app.get("/")
 def home():
@@ -23,14 +33,20 @@ def home():
 
 @app.get("/predict")
 def predict(issue: str):
+    start_time = time.time()
+
+    REQUEST_COUNT.inc()  # count requests
+
     issue_clean = normalize(issue)
 
     # ML Prediction
     X = vectorizer.transform([issue_clean])
     prediction = model.predict(X)[0]
 
-    # Fetch full details
+    # Fetch details
     row = df[df["category"] == prediction].iloc[0]
+
+    REQUEST_LATENCY.observe(time.time() - start_time)  # record latency
 
     return {
         "predicted_issue": prediction,
@@ -43,3 +59,8 @@ def predict(issue: str):
 @app.get("/ui")
 def ui():
     return FileResponse(os.path.join("static", "index.html"))
+
+# ✅ IMPORTANT: Metrics endpoint
+@app.get("/metrics")
+def metrics():
+    return Response(generate_latest(), media_type="text/plain")
