@@ -7,7 +7,7 @@ import joblib
 df = pd.read_csv("../data/devops_natural_dataset.csv")
 
 # Input and label
-X = df["issue"]
+X = df["text"]
 y = df["category"]
 
 # Convert text to numbers
