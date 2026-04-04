@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "your-dockerhub-username/devops-ml-app"
+        IMAGE_NAME = "prabhat2025/devops-ml-app"
         TAG = "latest"
     }
 
