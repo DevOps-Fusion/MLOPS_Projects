@@ -4,7 +4,7 @@ from sklearn.linear_model import LogisticRegression
 import joblib
 
 # Load dataset
-df = pd.read_csv("../data/devops_issues_dataset.csv")
+df = pd.read_csv("../data/devops_natural_dataset.csv")
 
 # Input and label
 X = df["issue"]
