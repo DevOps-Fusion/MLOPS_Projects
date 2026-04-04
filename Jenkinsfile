@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         IMAGE_NAME = "prabhat2025/devops-ml-app"
-        TAG = "latest"
+        TAG = "2"
     }
 
     stages {
@@ -45,15 +45,6 @@ pipeline {
         stage('Push Image to DockerHub') {
             steps {
                 bat 'docker push %IMAGE_NAME%:%TAG%'
-            }
-        }
-
-        stage('Deploy to Kubernetes') {
-            steps {
-                bat '''
-                kubectl apply -f deployment.yaml
-                kubectl apply -f service.yaml
-                '''
             }
         }
     }
