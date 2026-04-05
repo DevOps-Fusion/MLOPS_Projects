@@ -16,7 +16,7 @@ model = joblib.load("../model/model.pkl")
 vectorizer = joblib.load("../model/vectorizer.pkl")
 
 # Load dataset
-df = pd.read_csv("../data/devops_natural_dataset.csv")
+df = pd.read_csv("../data/devops_issues_dataset.csv")
 
 def normalize(text):
     return text.lower().strip()
