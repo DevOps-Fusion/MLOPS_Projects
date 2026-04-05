@@ -4,6 +4,9 @@ pipeline {
     environment {
         IMAGE_NAME = "prabhat2025/devops-ml-app"
         TAG = "5"
+        KUBECONFIG = "C:\Users\prabh\.kube\config" 
+        DEPLOYMENT_NAME = "devops-ml-app"
+        CONTAINER_NAME = "devops-ml-app"
     }
 
     stages {
@@ -46,6 +49,21 @@ pipeline {
             steps {
                 bat 'docker push %IMAGE_NAME%:%TAG%'
             }
+        }
+        stage('Deploy to Kind Cluster') {
+            steps {
+                bat """
+                kubectl set image deployment/%DEPLOYMENT_NAME% %CONTAINER_NAME%=%IMAGE_NAME%:%TAG%
+                kubectl rollout status deployment/%DEPLOYMENT_NAME%
+                """
+            }
+        }
+    post {
+        success {
+            echo "✅ Docker image pushed and Kind deployment updated successfully!"
+        }
+        failure {
+            echo "❌ Pipeline failed!"
         }
     }
 }
