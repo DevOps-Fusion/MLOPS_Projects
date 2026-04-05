@@ -1,0 +1,54 @@
+{
+"annotations": {
+"list": []
+},
+"panels": [
+{
+"type": "timeseries",
+"title": "ML Requests Rate",
+"targets": [
+{
+"expr": "rate(ml_requests_total[1m])",
+"legendFormat": "Requests/sec"
+}
+],
+"gridPos": { "x": 0, "y": 0, "w": 12, "h": 8 }
+},
+{
+"type": "stat",
+"title": "Total Requests",
+"targets": [
+{
+"expr": "ml_requests_total",
+"legendFormat": "Total"
+}
+],
+"gridPos": { "x": 12, "y": 0, "w": 12, "h": 8 }
+},
+{
+"type": "timeseries",
+"title": "Request Latency (P95)",
+"targets": [
+{
+"expr": "histogram_quantile(0.95, rate(ml_request_latency_seconds_bucket[1m]))",
+"legendFormat": "P95 Latency"
+}
+],
+"gridPos": { "x": 0, "y": 8, "w": 12, "h": 8 }
+},
+{
+"type": "timeseries",
+"title": "Request Latency (Avg)",
+"targets": [
+{
+"expr": "rate(ml_request_latency_seconds_sum[1m]) / rate(ml_request_latency_seconds_count[1m])",
+"legendFormat": "Avg Latency"
+}
+],
+"gridPos": { "x": 12, "y": 8, "w": 12, "h": 8 }
+}
+],
+"schemaVersion": 37,
+"title": "MLOps - ML Service Monitoring",
+"version": 1
+}
