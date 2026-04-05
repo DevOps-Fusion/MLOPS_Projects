@@ -43,6 +43,13 @@ capable of classifying common infrastructure issues and providing debugging and 
      Open:
      http://localhost:8000/doc
 
-# 5. Access UI
-     http://localhost:8000/ui
+
+# 5. Port Forward
+  kubectl port-forward pod/prometheus 9090:9090 -n monitoring  ----> Promethus
+  kubectl port-forward pod/grafana 3001:3000 -n monitoring     ----> Grafana
+  kubectl port-forward svc/devops-ml-service 8090:80 -n default ----> Application
+# 6. Access 
+     http://localhost:8090/ui -------- Application
+     http://localhost:3001 ----> Grafana
+     http://localhost:8090 ----> Promethus
 
