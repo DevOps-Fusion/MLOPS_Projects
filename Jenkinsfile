@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         IMAGE_NAME = "prabhat2025/devops-ml-app"
-        TAG = "5"
+        TAG = "${BUILD_NUMBER}"
         KUBECONFIG = 'C:\\Users\\prabh\\.kube\\config' 
         DEPLOYMENT_NAME = "devops-ml-app"
         CONTAINER_NAME = "devops-ml"
