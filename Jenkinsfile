@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         IMAGE_NAME = "prabhat2025/devops-ml-app"
-        TAG = "4"
+        TAG = "5"
     }
 
     stages {
