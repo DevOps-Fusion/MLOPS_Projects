@@ -15,7 +15,7 @@ capable of classifying common infrastructure issues and providing debugging and 
 
 
 # 1. Install Dependencies
-     pip install requirements.txt
+     pip install -r requirements.txt
 
 # 2. Train ML Model
      python/python3 train.py
