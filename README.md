@@ -51,5 +51,5 @@ capable of classifying common infrastructure issues and providing debugging and 
 # 6. Access 
      http://localhost:8090/ui -------- Application
      http://localhost:3001 ----> Grafana
-     http://localhost:8090 ----> Promethus
+     http://localhost:9090 ----> Promethus
 
