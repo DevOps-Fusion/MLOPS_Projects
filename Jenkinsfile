@@ -6,7 +6,7 @@ pipeline {
         TAG = "5"
         KUBECONFIG = 'C:\\Users\\prabh\\.kube\\config' 
         DEPLOYMENT_NAME = "devops-ml-app"
-        CONTAINER_NAME = "devops-ml-app"   // Must match container name in your deployment YAML
+        CONTAINER_NAME = "devops-ml"
     }
 
     stages {
